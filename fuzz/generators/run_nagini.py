@@ -4,7 +4,8 @@ from run_api import GeneratorBase
 
 with atheris.instrument_imports():
     import vyper
-    from converters.typed_converters_4 import NaginiConverter
+    from fuzz.converters.typed_converters_4 import NaginiConverter
+
 
 class GeneratorNagini(GeneratorBase):
     def compile_source(self, proto_result):
@@ -13,6 +14,7 @@ class GeneratorNagini(GeneratorBase):
             return c_result, None
         except Exception as e:
             return None, e
+
 
 generator = GeneratorNagini(NaginiConverter)
 

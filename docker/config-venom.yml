@@ -1,0 +1,25 @@
+compilers:
+  - name: venom
+    queue: venom
+    exec_params:
+      venom: True
+  - name: default
+    queue: default
+    exec_params:
+      venom: False
+
+queues:
+  venom:
+    host: queue_nagini_venom
+    port: 5672
+  default:
+    host: queue_nagini
+    port: 5672
+
+db:
+  host: mongodb
+  port: 27017
+input_strategies: [1]
+# for logging level reference https://docs.python.org/3/library/logging.html#logging-levels
+verbosity: DEBUG
+extra_flags: []
